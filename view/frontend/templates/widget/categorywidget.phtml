@@ -1,0 +1,28 @@
+<?php
+	$categories = $this->getCategoryCollection();
+	$categoryHelper = $this->getCategoryHelper();
+	$canShowImg = $this->canShowImage();
+	$title = $block->getTitle() ? __($block->getTitle()) : 'Categories';
+?>
+<div class="category_list_widget">
+	<?php if ($title):?>
+	<div class="block-title">
+		<strong><?php echo $block->escapeHtml($title) ?></strong>
+	</div>
+	<?php endif ?>
+
+	<div class="block-content catalog-category">
+		<?php foreach($categories as $category):?>
+		<div class="category">
+			<a href="<?php echo $block->escapeUrl($category->getUrl()) ?>">
+				<?php if($canShowImg && $category->getImageUrl()):?>
+				<img src="<?php echo $block->escapeUrl($category->getImageUrl()) ?>" alt="" width="<?=$this->getImageWidth();?>" height="<?=$this->getImageHeight()?>"/>
+				<?php else:?>
+				<img src="<?php echo $this->getViewFileUrl('Buro210_Categorylist::images/placeholder.png'); ?>" alt="" width="<?=$this->getImageWidth();?>" height="<?=$this->getImageHeight()?>"/>
+				<?php endif;?>
+				<span class="cat-title"><?php echo $block->escapeHtml($category->getName()) ?></span>
+			</a>
+		</div>
+		<?php endforeach; ?>
+	</div>
+</div>
