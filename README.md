@@ -12,8 +12,8 @@ Magento 2 widget for displaying a list of categories with or without an image
 ## Installation (not live yet)
 
 ```
-composer require placeholder/placeholder
-php bin/magento module:enable placeholder_placeholder
+composer require buro210/categorylist
+php bin/magento module:enable Buro210/Categorylist
 php bin/magento setup:upgrade
 ```
 
