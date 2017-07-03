@@ -13,6 +13,7 @@
 
 	<div class="block-content catalog-category">
 		<?php foreach($categories as $category):?>
+		<?php if ($category->getIncludeInMenu()): ?>
 		<div class="category">
 			<a href="<?php echo $block->escapeUrl($category->getUrl()) ?>">
 				<?php if($canShowImg && $category->getImageUrl()):?>
@@ -23,6 +24,7 @@
 				<span class="cat-title"><?php echo $block->escapeHtml($category->getName()) ?></span>
 			</a>
 		</div>
+		<?php endif; ?>
 		<?php endforeach; ?>
 	</div>
 </div>
