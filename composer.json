@@ -1,5 +1,5 @@
 {
-    "name": "buro210/module-categorytext",
+    "name": "Buro210/Categorylist",
     "description": "Add additional description to category",
     "license": "proprietary",
     "authors": [
@@ -15,7 +15,7 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "Buro210\\CategoryText\\": ""
+            "Buro210\\Categorylist\\": ""
         },
         "files": [
             "registration.php"
