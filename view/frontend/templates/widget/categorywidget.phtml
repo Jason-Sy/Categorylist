@@ -17,7 +17,7 @@
 		<div class="category">
 			<a href="<?php echo $block->escapeUrl($category->getUrl()) ?>">
 				<?php if($canShowImg && $category->getImageUrl()):?>
-				<img src="<?php echo $block->escapeUrl($category->getImageUrl()) ?>" alt="" width="<?=$this->getImageWidth();?>" height="<?=$this->getImageHeight()?>"/>
+				<img src="<?php echo $block->escapeUrl($category->getData('additional_image')) ?>" alt="" width="<?=$this->getImageWidth();?>" height="<?=$this->getImageHeight()?>"/>
 				<?php elseif($canShowImg && !$category->getData('additional_image')):?>
 				<img src="<?php echo $this->getViewFileUrl('Buro210_Categorylist::images/placeholder.png'); ?>" alt="" width="<?=$this->getImageWidth();?>" height="<?=$this->getImageHeight()?>"/>
 				<?php else: ?>
