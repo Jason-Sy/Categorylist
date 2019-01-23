@@ -1,0 +1,74 @@
+.category_list_widget .block-content.catalog-category {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	   -ms-flex-direction: row;
+	       flex-direction: row;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	margin-top: -10px;
+	margin-right: -10px;
+	margin-bottom: -10px;
+	margin-left: -10px;
+	margin-bottom: -4px;
+}
+
+.category_list_widget .category a {
+	display: block;
+}
+
+.category_list_widget .category img {
+	display: block;
+	margin: 0 auto;
+}
+
+.category_list_widget .category span.cat-title {
+	display: block;
+    font-size: 16px;
+    line-height: 16px;
+    margin-top: 4px;
+}
+
+.category_list_widget .category {
+	margin: 10px 10px 4px 10px;
+	width: calc(100% / 2 - 20px);
+}
+.category_list_widget .category.current a {
+	height: 100%;
+}
+.category_list_widget .category.current a .current_wrapper {
+	height: calc(100% - 20px);
+	background: #FFF;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+}
+.category_list_widget .category.current a .current_wrapper .current_text {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 25px;
+    text-transform: uppercase;
+    padding: 10px;
+}
+.category_list_widget .category.current a .current_wrapper .all_link {
+	display: block;
+	width: 100%;
+	margin-top: auto;
+
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 17px;
+    text-transform: uppercase;
+    padding: 10px;
+}
+
