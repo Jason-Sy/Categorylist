@@ -2,7 +2,8 @@
 	$categories = $this->getCategoryCollection();
 	$categoryHelper = $this->getCategoryHelper();
 	$canShowImg = $this->canShowImage();
-	$title = $block->getTitle() ? __($block->getTitle()) : 'Categories';
+	$title = __($block->getTitle());
+	$currentCat  = $block->getCurrentCategory();
 ?>
 <div class="category_list_widget">
 	<?php if ($title):?>
@@ -14,17 +15,42 @@
 	<div class="block-content catalog-category">
 		<?php foreach($categories as $category):?>
 		<?php if ($category->getIncludeInMenu()): ?>
-		<div class="category">
+		<?php
+			$imageWidth = $this->getImageWidth();
+			$imageHeight = $this->getImageHeight();
+			$additionalImage = $block->escapeUrl($category->getData('additional_image'));
+			$placeHolder = $this->getViewFileUrl('Buro210_CategoryList::images/placeholder.png');
+			$categoryID = $block->escapeHtml($category->getId());
+			$categoryTitle = $block->escapeHtml($category->getName());
+			$curerntCatID = (!empty($currentCat) ? $curerntCatID = $block->escapeHtml($currentCat->getId()) : $curerntCatID = 0);
+		?>
+		<?php if ($categoryID != $curerntCatID) : ?>
+
+		<div class="category id-<?php echo $categoryID; ?>">
 			<a href="<?php echo $block->escapeUrl($category->getUrl()) ?>">
-				<?php if($canShowImg && $category->getImageUrl()):?>
-				<img src="<?php echo $block->escapeUrl($category->getData('additional_image')) ?>" alt="" width="<?=$this->getImageWidth();?>" height="<?=$this->getImageHeight()?>"/>
-				<?php elseif($canShowImg && !$category->getData('additional_image')):?>
-				<img src="<?php echo $this->getViewFileUrl('Buro210_Categorylist::images/placeholder.png'); ?>" alt="" width="<?=$this->getImageWidth();?>" height="<?=$this->getImageHeight()?>"/>
+
+				<?php if($canShowImg && $category->getData('additional_image')): ?>
+					<img src="<?php echo $block->resize($additionalImage,$imageWidth,$imageHeight); ?>" alt="" width="<?php echo $imageWidth; ?>" height="<?php echo $imageHeight; ?>"/>
 				<?php else: ?>
-				<?php endif;?>
-				<span class="cat-title"><?php echo $block->escapeHtml($category->getName()) ?></span>
+					<img src="<?php echo $placeHolder; ?>" alt=""/>
+				<?php endif; ?>
+
+				<span class="cat-title"><?php echo $categoryTitle; ?></span>
 			</a>
 		</div>
+		<?php /*else: ?>
+		<div class="category current id-<?php echo $categoryID; ?>">
+			<a href="<?php echo $block->escapeUrl($currentCat->getParentCategory()->getUrl()) ?>">
+				<div class="current_wrapper">
+					<div class="current_text">
+						<?php echo __('Current category'); ?>
+					</div>
+					<span class="all_link"><?php echo __('Back to homepage'); ?></span>
+				</div>
+			</a>
+		</div>
+		<?php endif; */?>
+		<?php endif; ?>
 		<?php endif; ?>
 		<?php endforeach; ?>
 	</div>
