@@ -1,6 +1,10 @@
 <?php
-
-namespace Buro210\Categorylist\Helper;
+/**
+ * @author Thijs Adriaansens BURO210
+ * @copyright Copyright © 2019 BURO210. All rights reserved.
+ * @package Buro210/CategoryList
+ */
+namespace Buro210\CategoryList\Helper;
 
 class Data
     extends \Magento\Framework\App\Helper\AbstractHelper
