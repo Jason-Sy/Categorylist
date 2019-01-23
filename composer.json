@@ -1,24 +1,22 @@
 {
-    "name": "buro210/categorylist",
-    "description": "Add additional description to category",
-    "license": "proprietary",
-    "authors": [
-        {
-            "name": "Thijs BURO210",
-            "email": "thijs@buro210.nl"
-        }
-    ],
-    "require": {
-        "php": "~5.5.0|~5.6.0|~7.0.0"
-    },
-    "minimum-stability": "dev",
-    "require": {},
-    "autoload": {
-        "psr-4": {
-            "Buro210\\Categorylist\\": ""
-        },
-        "files": [
-            "registration.php"
-        ]
-    }
+	"name": "buro210/categorylist",
+	"description": "Create A categoylist widget",
+	"license": "proprietary",
+	"authors": [
+		{
+			"name": "Thijs BURO210",
+			"email": "thijs@buro210.nl",
+			"homepage":"https://www.buro210.nl/"
+		}
+	],
+	"minimum-stability": "dev",
+	"require": {},
+	"autoload": {
+		"psr-4": {
+			"Buro210\\Categorylist\\": ""
+		},
+		"files": [
+			"registration.php"
+		]
+	}
 }
