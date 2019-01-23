@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
-	<widget id="buro210_categorylist" class="Buro210\Categorylist\Block\Widget\CategoryWidget">
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+	<widget id="buro210_categorylist" class="Buro210\CategoryList\Block\Widget\CategoryWidget">
 		<label translate="true">Category List Widget</label>
 		<description>Store Default 1st level Category List Widget</description>
 		<parameters>
