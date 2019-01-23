@@ -1,34 +1,31 @@
 <?php
+/**
+ * @author Thijs Adriaansens BURO210
+ * @copyright Copyright © 2019 BURO210. All rights reserved.
+ * @package Buro210/CategoryList
+ */
 
-namespace Buro210\Categorylist\Setup;
+namespace Buro210\CategoryList\Setup;
 
 use Magento\Framework\Setup\InstallDataInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
-use Magento\Catalog\Setup\CategorySetupFactory;
+use Magento\Eav\Setup\EavSetup;
+use Magento\Eav\Setup\EavSetupFactory;
 
-/**
- * @codeCoverageIgnore
- */
-class InstallData
-    implements InstallDataInterface
+class InstallData implements InstallDataInterface
 {
-    /**
-     * Category setup factory
-     *
-     * @var CategorySetupFactory
-     */
-    private $categorySetupFactory;
+
+    private $eavSetupFactory;
 
     /**
-     * Init
+     * Constructor
      *
-     * @param CategorySetupFactory $categorySetupFactory
+     * @param \Magento\Eav\Setup\EavSetupFactory $eavSetupFactory
      */
-    public function __construct(
-        CategorySetupFactory $categorySetupFactory
-    ) {
-        $this->categorySetupFactory = $categorySetupFactory;
+    public function __construct(EavSetupFactory $eavSetupFactory)
+    {
+        $this->eavSetupFactory = $eavSetupFactory;
     }
 
     /**
@@ -38,23 +35,27 @@ class InstallData
         ModuleDataSetupInterface $setup,
         ModuleContextInterface $context
     ) {
-        $setup->startSetup();
+    	$setup->startSetup();
 
-        /** @var \Magento\Catalog\Setup\CategorySetup $categorySetup */
-        $categorySetup = $this->categorySetupFactory->create(['setup' => $setup]);
+    	/** @var \Magento\Catalog\Setup\CategorySetup $categorySetup */
+        $eavSetup = $this->eavSetupFactory->create(['setup' => $setup]);
 
-        $categorySetup->addAttribute(
-            'catalog_category',
+        $eavSetup->addAttribute(
+            \Magento\Catalog\Model\Category::ENTITY,
             'additional_image',
             [
                 'type' => 'varchar',
-                'label' => 'Additional Image',
+                'label' => 'List widget image',
                 'input' => 'image',
-                'backend' => 'Magento\Catalog\Model\Category\Attribute\Backend\Image',
-                'required' => false,
                 'sort_order' => 100,
+                'source' => '',
                 'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
+                'visible' => true,
+                'required' => false,
+                'user_defined' => false,
+                'default' => null,
                 'group' => 'General Information',
+                'backend' => 'Magento\Catalog\Model\Category\Attribute\Backend\Image'
             ]
         );
 
